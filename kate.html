@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Surprise</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('Spongebob Squarepants GIF.gif') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
+    }
+
+    .btn {
+      padding: 15px 40px;
+      border: none;
+      outline: none;
+      color: #fff;
+      background-color: #801299;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 18px;
+      position: relative;
+      z-index: 0;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      background: linear-gradient(45deg, #cf06a7, #e9085a, #801299, #40094c);
+      background-size: 400% 400%;
+      z-index: -1;
+      filter: blur(8px);
+      border-radius: 12px;
+      transition: opacity 0.3s ease-in-out;
+      opacity: 0;
+    }
+
+
+     .btn::after {
+      content: "💜";
+      position: absolute;
+      top: -10px;
+      left: 100%;
+      transform: translateX(-50%);
+      font-size: 20px;
+      animation: floatHearts 1.5s infinite ease-in-out;
+      pointer-events: none;
+      z-index: 2
+      ;
+    }
+
+    
+
+    @keyframes floatHearts {
+      0% { transform: translateX(-50%) translateY(0) scale(1); opacity: 0.8; }
+      50% { transform: translateX(-50%) translateY(-10px) scale(1.2); opacity: 1; }
+      100% { transform: translateX(-50%) translateY(0) scale(1); opacity: 0.8; }
+    }
+
+    @keyframes glowing {
+      0% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.05); }
+      100% { opacity: 0.5; transform: scale(1); }
+    }
+
+    .btn:hover::before {
+      animation: glowing 1.5s infinite;
+      opacity: 1;
+      box-shadow: 0 0 20px #cf06a7, 0 0 30px #e9085a, 0 0 40px #801299;
+    }
+
+    .btn:hover {
+      background-color: #a52fb1;
+    }
+  </style>
+</head>
+<body>
+  <button class="btn" onclick="sayHello()">Click Me</button>
+
+  <script>
+    function sayHello() {
+      alert('Happy Birthday, Kate! 🎂');
+      window.location.href = 'kate2.html';
+    }
+
+    
+  </script>
+</body>
+</html>
